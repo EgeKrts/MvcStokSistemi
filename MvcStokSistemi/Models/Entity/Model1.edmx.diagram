@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="61c069ee202a441a9ab08faf83e894d6" Name="Diagram1">
+        <EntityTypeShape EntityType="DbMvcStokModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMvcStokModel.Tbl_Category" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMvcStokModel.Tbl_Customer" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMvcStokModel.Tbl_Product" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMvcStokModel.Tbl_Sales" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMvcStokModel.Tbl_Staff" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <AssociationConnector Association="DbMvcStokModel.FK_Tbl_Product_Tbl_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMvcStokModel.FK_Tbl_Sales_Tbl_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMvcStokModel.FK_Tbl_Sales_Tbl_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMvcStokModel.FK_Tbl_Sales_Tbl_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMvcStokModel.FK_Tbl_Sales_Tbl_Staff" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

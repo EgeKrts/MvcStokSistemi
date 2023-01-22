@@ -1,0 +1,26 @@
+﻿
+@model MvcStokSistemi.Models.Entity.Tbl_Category
+@{
+    ViewBag.Title = "GetCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("UpdateCategory", "Category", FormMethod.Post))
+{
+
+    <h2>Category Update Screen</h2>
+
+    <br />
+
+    <label>Category Name</label>
+    @Html.HiddenFor(m => m.Id, new {@class ="form-control"})
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    <br />
+
+
+
+    <button class="btn btn-warning">Update</button>
+
+}

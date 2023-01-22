@@ -1,8 +1,29 @@
 ﻿
+
+@using MvcStokSistemi.Models.Entity
+
+@model List<Tbl_Category>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+    </tr>
+    @foreach(var x in Model)
+            {
+                <tr>
+                    <td>@x.Id</td>
+                    <td>@x.Name</td>
+                    <td><a href="/Category/DeleteCategory/@x.Id" class="btn btn-danger">Delete</a></td>
+                    <td><a href="/Category/GetCategory/@x.Id" class="btn btn-success">Update</a></td>
+                </tr>
+            }
+</table>
 
+<a href="/Category/NewCategory" class="btn btn-primary">New Category</a>

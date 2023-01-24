@@ -1,0 +1,38 @@
+﻿
+@using MvcStokSistemi.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<Tbl_Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>SURNAME</th>
+        <th>CITY</th>
+        <th>BUDGET</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Id</td>
+            <td>@x.Name</td>
+            <td>@x.Surname</td>
+            <td>@x.City</td>
+            <td>@x.Budget</td>
+            <td><a href="/Customer/DeleteCustomer/@x.Id" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Customer/GetCustomer/@x.Id" class="btn btn-success">Update</a></td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager((IPagedList)Model,page =>Url.Action("Index",new { page}))
+
+<a href="/Customer/NewCustomer" class="btn btn-primary">New Customer</a>

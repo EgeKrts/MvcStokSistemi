@@ -31,6 +31,7 @@
           <Property Name="Surname" Type="varchar" MaxLength="30" />
           <Property Name="City" Type="varchar" MaxLength="15" />
           <Property Name="Budget" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Status" Type="bit" />
         </EntityType>
         <EntityType Name="Tbl_Product">
           <Key>
@@ -187,6 +188,7 @@
           <Property Name="City" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="Budget" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="Tbl_Sales" Relationship="Self.FK_Tbl_Sales_Tbl_Customer" FromRole="Tbl_Customer" ToRole="Tbl_Sales" />
+          <Property Name="Status" Type="Boolean" />
         </EntityType>
         <EntityType Name="Tbl_Product">
           <Key>
@@ -345,6 +347,7 @@
           <EntitySetMapping Name="Tbl_Customer">
             <EntityTypeMapping TypeName="DbMvcStokModel.Tbl_Customer">
               <MappingFragment StoreEntitySet="Tbl_Customer">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />

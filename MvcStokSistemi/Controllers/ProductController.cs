@@ -13,7 +13,7 @@ namespace MvcStokSistemi.Controllers
         DbMvcStokEntities db = new DbMvcStokEntities();
         public ActionResult Index()
         {
-            var product = db.Tbl_Product.ToList();
+            var product = db.Tbl_Product.Where(x=>x.Status==true).ToList();
             return View(product);
         }
 
@@ -72,5 +72,13 @@ namespace MvcStokSistemi.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult DeleteProduct(Tbl_Product p)
+        {
+            var findProduct = db.Tbl_Product.Find(p.Id);
+            findProduct.Status = false;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
     }
 }

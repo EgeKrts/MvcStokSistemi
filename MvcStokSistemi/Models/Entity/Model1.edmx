@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DbMvcStokModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DbMvcStokModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -37,12 +37,13 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
           <Property Name="Brand" Type="varchar" MaxLength="50" />
           <Property Name="Stock" Type="smallint" />
           <Property Name="PurchasePrice" Type="decimal" Precision="18" Scale="2" />
           <Property Name="SellingPrice" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Category" Type="int" />
+          <Property Name="Status" Type="bit" />
         </EntityType>
         <EntityType Name="Tbl_Sales">
           <Key>
@@ -153,8 +154,7 @@
             <End Role="Tbl_Sales" EntitySet="Tbl_Sales" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DbMvcStokModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -193,7 +193,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Stock" Type="Int16" />
           <Property Name="PurchasePrice" Type="Decimal" Precision="18" Scale="2" />
@@ -201,6 +201,7 @@
           <Property Name="Category" Type="Int32" />
           <NavigationProperty Name="Tbl_Category" Relationship="Self.FK_Tbl_Product_Tbl_Category" FromRole="Tbl_Product" ToRole="Tbl_Category" />
           <NavigationProperty Name="Tbl_Sales" Relationship="Self.FK_Tbl_Sales_Tbl_Product" FromRole="Tbl_Product" ToRole="Tbl_Sales" />
+          <Property Name="Status" Type="Boolean" />
         </EntityType>
         <EntityType Name="Tbl_Sales">
           <Key>
@@ -355,6 +356,7 @@
           <EntitySetMapping Name="Tbl_Product">
             <EntityTypeMapping TypeName="DbMvcStokModel.Tbl_Product">
               <MappingFragment StoreEntitySet="Tbl_Product">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Brand" ColumnName="Brand" />

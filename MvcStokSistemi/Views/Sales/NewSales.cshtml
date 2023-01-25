@@ -1,0 +1,44 @@
+﻿
+@model MvcStokSistemi.Models.Entity.Tbl_Sales
+
+@{
+    ViewBag.Title = "NewSales";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<form method="post">
+    <h2>Sales Addition Screen</h2>
+
+    <br />
+
+    <label>Product</label>
+
+    @Html.DropDownListFor(m => m.Tbl_Product.Id, (List<SelectListItem>)ViewBag.dropProduct, new { @class = "form-control" })
+    <br />
+
+    <label>Staff</label>
+
+    @Html.DropDownListFor(m => m.Tbl_Staff.Id, (List<SelectListItem>)ViewBag.dropStaff, new { @class = "form-control" })
+    <br />
+
+    <label>Customer</label>
+    @Html.DropDownListFor(m => m.Tbl_Customer.Id, (List<SelectListItem>)ViewBag.dropCustomer, new { @class = "form-control" })
+
+    <br />
+
+    <label>Price</label>
+
+
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+
+    <br />
+
+
+
+
+    <button class="btn btn-info">Make a Sell</button>
+</form>
+
+
+

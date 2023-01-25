@@ -1,0 +1,36 @@
+﻿
+@using MvcStokSistemi.Models.Entity
+@model List<Tbl_Sales>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>PRODUCT</th>
+        <th>STAFF</th>
+        <th>CUSTOMER</th>
+        <th>PRICE</th>
+        <th>DATE</th>
+      
+    </tr>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>@p.Id</td>
+            <td>@p.Tbl_Product.Name</td>
+            <td>@p.Tbl_Staff.Name @p.Tbl_Staff.Surname</td>
+            <td>@p.Tbl_Customer.Name @p.Tbl_Customer.Surname</td>
+            <td>@p.Price</td>
+            <td>@p.Date</td>
+            
+        </tr>
+    }
+
+
+</table>
+<a href="/Sales/NewSales" class="btn btn-primary">New  Sales</a>
+

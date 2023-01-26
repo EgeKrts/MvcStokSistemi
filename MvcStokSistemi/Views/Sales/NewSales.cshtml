@@ -27,15 +27,8 @@
 
     <br />
 
-    <label>Price</label>
 
-
-    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
-
-    <br />
-
-
-
+    @Html.HiddenFor(m => m.Id, new { @class = "form-control" })
 
     <button class="btn btn-info">Make a Sell</button>
 </form>

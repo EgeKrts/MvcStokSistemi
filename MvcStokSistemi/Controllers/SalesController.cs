@@ -26,7 +26,7 @@ namespace MvcStokSistemi.Controllers
             List<SelectListItem> product = (from i in db.Tbl_Product.ToList()
                                                select new SelectListItem
                                                {
-                                                   Text = i.Name,
+                                                   Text = i.Name +" "+" "+" "+"Price: "+i.SellingPrice,
                                                    Value = i.Id.ToString()
                                                }).ToList();
 
@@ -59,12 +59,13 @@ namespace MvcStokSistemi.Controllers
         public ActionResult NewSales(Tbl_Sales s)
         {
             var product = db.Tbl_Product.Where(m => m.Id == s.Tbl_Product.Id).FirstOrDefault();
+           
             var staff = db.Tbl_Staff.Where(m => m.Id == s.Tbl_Staff.Id).FirstOrDefault();
             var customer = db.Tbl_Customer.Where(m => m.Id == s.Tbl_Customer.Id).FirstOrDefault();
             s.Tbl_Product = product;
             s.Tbl_Staff = staff;
             s.Tbl_Customer = customer;
-           
+            s.Price = product.SellingPrice;
             s.Date= DateTime.Now;
 
             db.Tbl_Sales.Add(s);

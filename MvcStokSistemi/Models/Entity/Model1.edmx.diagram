@@ -16,6 +16,7 @@
         <AssociationConnector Association="DbMvcStokModel.FK_Tbl_Sales_Tbl_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="DbMvcStokModel.FK_Tbl_Sales_Tbl_Product" ManuallyRouted="false" />
         <AssociationConnector Association="DbMvcStokModel.FK_Tbl_Sales_Tbl_Staff" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DbMvcStokModel.Tbl_Admin" Width="1.5" PointX="8.625" PointY="1.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

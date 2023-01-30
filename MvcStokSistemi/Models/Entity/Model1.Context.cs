@@ -31,5 +31,6 @@ namespace MvcStokSistemi.Models.Entity
         public virtual DbSet<Tbl_Product> Tbl_Product { get; set; }
         public virtual DbSet<Tbl_Sales> Tbl_Sales { get; set; }
         public virtual DbSet<Tbl_Staff> Tbl_Staff { get; set; }
+        public virtual DbSet<Tbl_Admin> Tbl_Admin { get; set; }
     }
 }

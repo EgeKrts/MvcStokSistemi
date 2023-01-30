@@ -11,21 +11,27 @@ namespace MvcStokSistemi.Controllers
     {
         // GET: Product
         DbMvcStokEntities db = new DbMvcStokEntities();
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var product = db.Tbl_Product.Where(x=>x.Status==true).ToList();
-            return View(product);
+            //var product = db.Tbl_Product.Where(x => x.Status == true).ToList();
+
+            var products = db.Tbl_Product.Where(x =>x.Status == true);
+            if (!string.IsNullOrEmpty(p))
+            {
+                products = products.Where(x => x.Name.Contains(p));
+            }
+            return View(products.ToList());
         }
 
         [HttpGet]
         public ActionResult NewProduct()
         {
             List<SelectListItem> categories = (from i in db.Tbl_Category.ToList()
-                                             select new SelectListItem
-                                             {
-                                                 Text = i.Name,
-                                                 Value = i.Id.ToString()
-                                             }).ToList();
+                                               select new SelectListItem
+                                               {
+                                                   Text = i.Name,
+                                                   Value = i.Id.ToString()
+                                               }).ToList();
 
             ViewBag.Categories = categories;
             return View();
@@ -61,11 +67,11 @@ namespace MvcStokSistemi.Controllers
         {
             var product = db.Tbl_Product.Find(p.Id);
             product.Name = p.Name;
-            product.Brand= p.Brand;
-            product.Stock= p.Stock;
-            product.PurchasePrice= p.PurchasePrice;
-            product.SellingPrice= p.SellingPrice;
-           
+            product.Brand = p.Brand;
+            product.Stock = p.Stock;
+            product.PurchasePrice = p.PurchasePrice;
+            product.SellingPrice = p.SellingPrice;
+
             var category = db.Tbl_Category.Where(m => m.Id == p.Tbl_Category.Id).FirstOrDefault();
             product.Category = category.Id;
             db.SaveChanges();

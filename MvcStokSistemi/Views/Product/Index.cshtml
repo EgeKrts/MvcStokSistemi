@@ -6,6 +6,14 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+@using (Html.BeginForm("Index", "Product", FormMethod.Get))
+            {
+                <p>
+                    Product Name : @Html.TextBox("p")
+                    <input type="submit" value="Search"/>
+                </p>
+            }
+
 <table class="table table-bordered">
     <tr>
         <th>ID</th>
